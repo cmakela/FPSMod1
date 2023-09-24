@@ -57,7 +57,7 @@ public:
 	AFPSMod1Character();
 
 private:
-	void DisplayRaycast();
+	// void DisplayRaycast();
 
 protected:
 	virtual void BeginPlay();

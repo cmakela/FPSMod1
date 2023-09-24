@@ -124,7 +124,7 @@ void AFPSMod1Character::SetupPlayerInputComponent(class UInputComponent* PlayerI
 	check(PlayerInputComponent);
 
 	// Bind DisplayRaycast event
-	PlayerInputComponent->BindAction("Raycast", IE_Pressed, this, &AFPSMod1Character::DisplayRaycast);
+	// PlayerInputComponent->BindAction("Raycast", IE_Pressed, this, &AFPSMod1Character::DisplayRaycast);
 
 	// Bind jump events
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
@@ -229,21 +229,21 @@ void AFPSMod1Character::EndTouch(const ETouchIndex::Type FingerIndex, const FVec
 	TouchItem.bIsPressed = false;
 }
 
-void AFPSMod1Character::DisplayRaycast()
-{
-	FHitResult* HitResult = new FHitResult();  // Added = signs between lines of code
-	FVector StartTrace = FirstPersonCameraComponent->GetComponentLocation();
-	FVector ForwardVector = FirstPersonCameraComponent->GetForwardVector();   // Changed : to ;
-	FVector EndTrace((ForwardVector * 3319.f) + StartTrace);
-	FCollisionQueryParams* TraceParams = new FCollisionQueryParams();
-	if (GetWorld() -> LineTraceSingleByChannel(*HitResult, StartTrace, EndTrace,  // Changed Hitresult to HitResult
-		ECC_Visibility, *TraceParams))
-	{
-		DrawDebugLine(GetWorld(), StartTrace, EndTrace, FColor(255, 0, 0), true);
-		GEngine -> AddOnScreenDebugMessage(1, 5.f, FColor::Red, FString::Printf(TEXT("You hit: %s"),  // Changed all > to ->
-			*HitResult -> Actor -> GetName()));
-	}
-}
+//void AFPSMod1Character::DisplayRaycast()
+//{
+//	FHitResult* HitResult = new FHitResult();  // Added = signs between lines of code
+//	FVector StartTrace = FirstPersonCameraComponent->GetComponentLocation();
+//	FVector ForwardVector = FirstPersonCameraComponent->GetForwardVector();   // Changed : to ;
+//	FVector EndTrace((ForwardVector * 3319.f) + StartTrace);
+//	FCollisionQueryParams* TraceParams = new FCollisionQueryParams();
+//	if (GetWorld() -> LineTraceSingleByChannel(*HitResult, StartTrace, EndTrace,  // Changed Hitresult to HitResult
+//		ECC_Visibility, *TraceParams))
+//	{
+//		DrawDebugLine(GetWorld(), StartTrace, EndTrace, FColor(255, 0, 0), true);
+//		GEngine -> AddOnScreenDebugMessage(1, 5.f, FColor::Red, FString::Printf(TEXT("You hit: %s"),  // Changed all > to ->
+//			*HitResult -> Actor -> GetName()));
+//	}
+//}
 
 //Commenting this section out to be consistent with FPS BP template.
 //This allows the user to turn without using the right virtual joystick

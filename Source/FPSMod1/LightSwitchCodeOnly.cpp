@@ -22,7 +22,7 @@ ALightSwitchCodeOnly::ALightSwitchCodeOnly()
     RootComponent = PointLight1;
 
     Sphere1 = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere1"));
-    Sphere1->InitSphereRadius(300.0f);
+    Sphere1->InitSphereRadius(350.0f);
     Sphere1->SetCollisionProfileName(TEXT("Trigger"));
     Sphere1->SetupAttachment(RootComponent);  // Attaches sphere component to LightComponent1
 
@@ -36,7 +36,7 @@ void ALightSwitchCodeOnly::BeginPlay()
 {
     Super::BeginPlay();
 
-    DrawDebugSphere(GetWorld(), GetActorLocation(), 300.f, 50, FColor::Green, true, -1, 0, 2);
+    //DrawDebugSphere(GetWorld(), GetActorLocation(), 300.f, 50, FColor::Green, true, -1, 0, 2);
 }
 
 // Called every frame
